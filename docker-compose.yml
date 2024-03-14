@@ -1,0 +1,17 @@
+services:
+  postgresql:
+      image: postgres
+      environment:
+        POSTGRES_USER: example
+        POSTGRES_PASSWORD: example
+      ports:
+        - 5432:5432
+  pgadmin:
+      image: dpage/pgadmin4
+      environment:
+        POSTGRES_USER: example
+        POSTGRES_PASSWORD: example
+      ports:
+        - 5050:80
+      depends_on:
+        - postgresql
